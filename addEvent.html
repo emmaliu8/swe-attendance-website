@@ -1,0 +1,51 @@
+<form action="/swe/addEventAction.php">
+  <fieldset>
+    <legend>Add Event</legend>
+    <label>Event Name:</label>
+    <input
+      id="eventName"
+      name="eventName"
+      type="text"
+      placeholder="#HelloWorld"
+      required
+    /><br />
+    <label>Event Password:</label>
+    <input id="eventPassword" name="eventPassword" type="text" required /><br />
+    <div>
+      <input
+        type="radio"
+        id="boardMeeting"
+        name="eventType"
+        value="BoardMeeting"
+        required
+      />
+      <label for="boardMeeting">Is a board meeting</label><br />
+    </div>
+    <div>
+      <input
+        type="radio"
+        id="outreachEvent"
+        name="eventType"
+        value="Outreach"
+      />
+      <label for="outreachEvent">Is an outreach event</label><br />
+    </div>
+    <div>
+      <input
+        type="radio"
+        id="recruitingEvent"
+        name="eventType"
+        value="Recruiting"
+      />
+      <label for="recruitingEvent"
+        >Is a SWE recruiting event (CPW, Orientation, SWEet Week, etc.)
+      </label>
+    </div>
+    <div>
+      <input type="radio" id="generalEvent" name="eventType" value="General" />
+      <label for="generalEvent">None of the above</label>
+    </div>
+    <br /><br />
+    <input type="submit" value="Submit" />
+  </fieldset>
+</form>

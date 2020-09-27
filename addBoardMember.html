@@ -1,0 +1,20 @@
+<form action="/swe/addBoardMemberAction.php">
+  <fieldset>
+    <legend>Add Member/Volunteer</legend>
+    <label>Name: (First and Last)</label>
+    <input id="memberName" name="memberName" type="text" required /><br />
+    <label>Kerberos:</label>
+    <input id="kerb" name="kerb" type="text" required />
+    <label>Position:</label>
+    <input id="position" name="position" type="text" required />
+    <label>Department:</label>
+    <select name="department" id="department" required>
+      <option value="CampusRelations">Campus Relations</option>
+      <option value="CareerDevelopment">Career Development</option>
+      <option value="Membership">Membership</option>
+      <option value="Outreach">Outreach</option>
+      <option value="Technology">Technology</option>
+    </select>
+    <input type="submit" value="Submit" />
+  </fieldset>
+</form>
