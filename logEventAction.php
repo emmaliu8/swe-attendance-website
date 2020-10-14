@@ -90,28 +90,25 @@ if ($password != $eventPassword) {
         if ($eventAlreadyAttended) {
              echo "You have already logged attendance for this event";
         } else {
-            if ($isBoardMember == 0) {
-                echo "Only board members can log attendance at board meetings";
-            } else {
-                $boardMeetingsNum = $boardMeetingsNum + 1;
-            
-                if ($boardMeetingsNum == 1) { #no events previously attended
-                    $boardMeetingsAttended = $eventName;
-                } else {
-                    $boardMeetingsAttended = $boardMeetingsAttended . ", " . $eventName;
-                }
-    
-                // #add new event attendee
-                // if (isset($eventAttendees) && $eventAttendees != '') {
-                //     $eventAttendees = $eventAttendees . ", " . $kerberos;
-                // } else {
-                //     $eventAttendees = $kerberos;
-                // }
+            $boardMeetingsNum = $boardMeetingsNum + 1;
         
-                #$sql = "UPDATE Members SET NumBoardMeetingsAttended=$boardMeetingsNum, BoardMeetingsAttended= '" . $boardMeetingsAttended . "' WHERE Kerberos= '" . $kerberos . "'; UPDATE Events SET Attendees= '" . $eventAttendees . "' WHERE Name = '" . $eventName . "'";
-    
-                $sql = "UPDATE Members SET NumBoardMeetingsAttended=$boardMeetingsNum, BoardMeetingsAttended= '" . $boardMeetingsAttended . "' WHERE Kerberos= '" . $kerberos . "'";
+            if ($boardMeetingsNum == 1) { #no events previously attended
+                $boardMeetingsAttended = $eventName;
+            } else {
+                $boardMeetingsAttended = $boardMeetingsAttended . ", " . $eventName;
             }
+
+            // #add new event attendee
+            // if (isset($eventAttendees) && $eventAttendees != '') {
+            //     $eventAttendees = $eventAttendees . ", " . $kerberos;
+            // } else {
+            //     $eventAttendees = $kerberos;
+            // }
+    
+            #$sql = "UPDATE Members SET NumBoardMeetingsAttended=$boardMeetingsNum, BoardMeetingsAttended= '" . $boardMeetingsAttended . "' WHERE Kerberos= '" . $kerberos . "'; UPDATE Events SET Attendees= '" . $eventAttendees . "' WHERE Name = '" . $eventName . "'";
+
+            $sql = "UPDATE Members SET NumBoardMeetingsAttended=$boardMeetingsNum, BoardMeetingsAttended= '" . $boardMeetingsAttended . "' WHERE Kerberos= '" . $kerberos . "'";
+            
         }
 
     } else if ($eventType == "Outreach") {
